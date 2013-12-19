@@ -1,0 +1,50 @@
+gem 'factory_girl_rails'
+gem 'faker'
+-----
+config/application.rb
+
+add g.fixture_replacement :factory_girl, :dir => "spec/factories"
+
+-----
+
+FactoryGirl.define do
+  factory :puppy do
+    sequence :name do |n|
+      Faker::Name.name
+    end
+  end
+end
+
+FactoryGirl.define do
+  factory :cat do
+    sequence :hat do |n|
+      FactoryGirl.create(:hat, :hat_name => "top-hat #{n}")
+    end
+  end
+end
+
+FactoryGirl.define do
+  factory :post do
+    title "It's a title!"
+    subtitle  "~also has a subtitle~"
+    random_num        { 1 + rand(100) }
+
+    # Child of :post factory, since it's in the `factory :post` block
+    factory :published_post do
+      published true
+    end
+  end
+end
+
+
+-----
+$ require 'faker'
+
+$ Faker::Commerce.product_name
+ => "Incredible Rubber Pants"
+
+$ Faker::Internet.domain_name
+  => "emmerichdonnelly.org"
+
+$ Faker::Name.name
+   => "Dessie Mertz"

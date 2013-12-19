@@ -1,0 +1,98 @@
+-----This is a big project
+
+ * Rails App
+ * RSpec BDD 
+ * Meaning Integration Tests
+ * Git (!)
+ 
+ * Goal Setting App (similar to 43things.com)
+ 
+ 
+-----RSpec BDD
+
+BDD vs. TDD
+
+Unit Tests vs. Integration Tests
+
+Unit: one feature or piece of the app (models, the Post controller, etc.)
+Integration: user side behavior of the app
+and/or many things working together
+
+There is more to all of this than we are telling you.
+Mozilla uses 1ks of tests
+
+-----Git
+
+QQQ - who has been using git?
+
+QQQ - Should I demo git setup?
+
+In this project we use git branches and merging for one phase.
+
+Demo git branch
+Making commits on branch
+merging branch back in
+
+QQQ - Should I demo github, setting up a remote repo?
+
+-----User Integration tests
+
+!!! Mention request specs - tests controller routes 
+you have a reading on this
+know they exist
+
+--You can test JS stuff with Capybara (next week)
+
+Think (Don't look at!, but think) of the assessment04 specs.
+
+Those actually visited pages in your app and tested out the behavior of the app.
+
+QQQ - If we want to write that kind of test for auth, what should it do?
+
+/spec/features/auth_spec.rb
+
+describe "the signup process" do 
+
+  it "has a new user page"
+
+  describe "signing up a user" do
+
+    it "shows username on the homepage after signup"
+
+  end
+
+end
+
+describe "logging in" do 
+
+  it "shows username on the homepage after login"
+
+end
+
+describe "logging out" do 
+
+  it "begins with logged out state"
+
+  it "doesn't show username on the homepage after logout"
+
+end
+
+You will actually write the tests for these.
+I'll just demo one -
+(Methods to use:)
+before(:each) do... 
+visit url
+fill_in 'field_name', :with => "thing"
+click_on "Create User"
+expect(page).to have_content "blah"
+
+Test one thing at a time as much as possible!!!
+
+
+-----Goal Setting App
+
+Users, Goals, Cheers
+QQQ - Does this all make sense?
+
+
+

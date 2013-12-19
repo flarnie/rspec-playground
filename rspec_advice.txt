@@ -1,0 +1,14 @@
+If you have to update tests every time you change something, 
+then that is a sign of "brittle tests"
+You should test behaviors, NOT implementations
+Remember - your tests should know as little as possible about
+the internals.  They should only interact with your API.
+
+Tests don't know about your helper methods, etc.
+
+
+If you aren't scared of your own codebase, wait til you build
+larger projects
+"But it works right now - I will break everything if I break it."
+
+technical debt vs. technical investment
